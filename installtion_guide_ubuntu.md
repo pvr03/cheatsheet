@@ -222,6 +222,11 @@ Execute join command in node, which may look like as mentioned below
        kubeadm join 10.128.0.8:6443 --token q915fe.do2ty6a8ow6qjixt \
        --discovery-token-ca-cert-hash sha256:acd137106e6b763d1ca6b5a4f7c1b1538c2ee8af81e47f9ea3f385c66cd710b3 
 
+If system promting an error ( The connection to the server localhost:8080 was refused - did you specify the right host or port?) when you run kubectl commands use below commands.
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 Then to verify use below commands
  - kubectl get nodes
  - kubectl get pods
